@@ -48,6 +48,7 @@ def power():
         x = base * x
     print(x)
 
+
 #sum_of_threes()
 #multiplication_table()
 #sumSquares()
