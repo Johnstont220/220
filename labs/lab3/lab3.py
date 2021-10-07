@@ -52,7 +52,7 @@ def pi():
 
 
 
-#average()
+average()
 #tip_jar()
 #sequence()
 #newton()
