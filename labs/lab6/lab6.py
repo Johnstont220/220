@@ -58,5 +58,5 @@ def pig_latin():
 #thirds()
 ##initials()
 ##word_average()
-names()
+#names()
 #pig_latin()
