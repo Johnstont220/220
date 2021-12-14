@@ -25,31 +25,34 @@ def squares():
     height = 400
     win = GraphWin("Lab 4", width, height)
 
-    # number of times user can move circle
+    # number of squares user can make
     num_clicks = 5
 
     # create a space to instruct user
     inst_pt = Point(width / 2, height - 10)
-    instructions = Text(inst_pt, "Click to move circle")
+    instructions = Text(inst_pt, "Click to make a square")
     instructions.draw(win)
 
-    # builds a circle
-    shape = Circle(Point(50, 50), 20)
+    # builds a square
+
+    shape = Rectangle(Point(20, 20), Point(40,40))
     shape.setOutline("red")
     shape.setFill("red")
     shape.draw(win)
 
-    # allows the user to click multiple times to move the circle
+    # allows the user to click multiple times to make squares
     for i in range(num_clicks):
         p = win.getMouse()
-        c = shape.getCenter()  # center of circle
+        c = shape.getCenter()  # center of square
 
-        # move amount is distance from center of circle to the
+        # move amount is distance from center of square to the
         # point where the user clicked
         dx = p.getX() - c.getX()
         dy = p.getY() - c.getY()
-        shape.move(dx, dy)
-
+        nshape = shape.clone()
+        nshape.move(dx, dy)
+        nshape.draw(win)
+    instructions.setText("Click again to close")
     win.getMouse()
     win.close()
 
@@ -62,14 +65,39 @@ def rectangle():
          Print the perimeter and area of the rectangle.
     Formulas: area = (length)(width)   and    perimeter = 2(length+width)
     """
+
+
     pass
 
+def circle():
+    win = GraphWin("Circles", 400, 400)
+
+
+    center = Point(100, 200)         # create a point to serve as the center of the circle
+    radius = 40
+    circle = Circle(center, radius)  # create a circle centered at "center" with radius "radius"
+    circle.setOutline('blue')
+    circle.draw(win)              # draw the circle in the window that we created earlier
+
+    win.getMouse()                # wait for the mouse to be clicked in the window
+    win.close()                   # close the window after the mouse is clicked in the window
+
+
+
+def pi2():
+    n = int(input("Enter a value for N: "))
+    total=0
+    for i in range(1,n):
+        total += (-1)**(i+1)*((1.0/(i+i+1)))
+
+    value = 4*(1-total)
+    print(value)
 
 def main():
-    squares()
+    #squares()
     # rectangle()
-    # circle()
-    # pi2()
+    circle()
+    #pi2()
 
 
 main()
